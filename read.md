@@ -22,8 +22,6 @@ Similarly like Linux you can deactivate it like
 
 $ deactivate
 
-
-
 insall these packages:
 pip install flask
 pip install pyautogui
