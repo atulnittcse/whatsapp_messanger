@@ -23,7 +23,7 @@ def send_whatsapp_message(group_ids, message):
     time.sleep(5)
     for group_id in group_ids:
         open_group_chat(group_id)
-        time.sleep(20) 
+        time.sleep(10) 
         pyautogui.typewrite(message)
         pyautogui.press('enter')
         time.sleep(2)  
