@@ -29,9 +29,9 @@ def send_whatsapp_message(group_ids, message):
         pyautogui.press('enter')
         time.sleep(2)  
 
-def send_whatsapp_messages(group_ids, message):
-      with concurrent.futures.ProcessPoolExecutor() as executor:
-       result = executor.map(send_whatsapp_message, group_ids , message)
+#def send_whatsapp_messages(group_ids, message):
+      #with concurrent.futures.ProcessPoolExecutor() as executor:
+       #result = executor.map(send_whatsapp_message, group_ids , message)
            
 
 def open_group_chat(group_id):
