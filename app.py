@@ -31,23 +31,22 @@ def send_whatsapp_message(group_ids, message):
         pyautogui.press('enter')
         time.sleep(2)  
 
-def send_whatsapp_messages(group_ids, message):
-    threads = []
-
-    for group_id in group_ids:
-        thread = threading.Thread(
-            target=send_whatsapp_message, args=(group_id, message))
-        thread.start()
-        threads.append(thread)
-
-    for thread in threads:
-        thread.join()
-
-
 #def send_whatsapp_messages(group_ids, message):
+    #threads = []
+
     #for group_id in group_ids:
-      #with concurrent.futures.ProcessPoolExecutor() as executor:
-       #result = executor.map(send_whatsapp_message, group_ids, message)
+        #thread = threading.Thread(
+            #target=send_whatsapp_message, args=(group_id, message))
+        #thread.start()
+        #threads.append(thread)
+
+    #for thread in threads:
+        #thread.join()
+
+
+def send_whatsapp_messages(group_ids, message):
+      with concurrent.futures.ProcessPoolExecutor() as executor:
+       result = executor.map(send_whatsapp_message, group_ids)
            
 
 def open_group_chat(group_id):
