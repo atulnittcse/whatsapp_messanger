@@ -3,8 +3,6 @@ import time
 import concurrent.futures
 import pyautogui
 import multiprocessing 
-import threading
-
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
