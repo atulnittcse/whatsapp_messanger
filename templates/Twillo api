@@ -1,0 +1,25 @@
+from twilio.rest import Client
+
+# Twilio Account SID and Auth Token
+account_sid = 'your_account_sid'
+auth_token = 'your_auth_token'
+client = Client(account_sid, auth_token)
+
+def send_whatsapp_message(group_ids, message):
+    for group_id in group_ids:
+        group_id = group_id.strip()
+        try:
+            message = client.messages.create(
+                body=message,
+                from_='whatsapp:+1234567890',  # Your Twilio WhatsApp number
+                to=f'whatsapp:{group_id}'
+            )
+            print(f"Message sent to {group_id}, SID: {message.sid}")
+        except Exception as e:
+            print(f"An error occurred while sending the message to {group_id}: {str(e)}")
+
+if __name__ == '__main__':
+    group_ids = input("Enter comma-separated group IDs: ").split(',')
+    message = input("Enter the message: ")
+    
+    send_whatsapp_message(group_ids, message)
